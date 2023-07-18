@@ -1,0 +1,26 @@
+---
+- hosts: all
+  gather_facts: no
+  tasks:
+    -name: Change hostname
+    win_hostname:
+      name: "{{inventory_hostname_short}}"
+    register: server_rename
+
+    -name: Reboot when required
+    win_reboot:
+    when: server_rename.reboot_required
+
+    -name: Join server to domain
+      win_domain_membership:
+        dns_domain_name:
+        domain_admin_user: Administrator
+        domain_admin_password: 
+        hostname: "{{inventory_hostname_short}}"
+        stage: domain
+      register: domain_join
+      throttle: 1
+
+    -name: Reboot when required
+    win_reboot:
+    when: server_rename.reboot_required
