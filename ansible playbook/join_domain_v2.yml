@@ -4,7 +4,7 @@
   tasks:
   - ansible.windows.win_domain_membership:
       dns_domain_name: ad.attackdefense.com
-      hostname: "{{inventory_hostname}}"
+      hostname: EC2AMAZ-4V2UJES
       domain_admin_user: Administrator@ad.attackdefense.com
       domain_admin_password: Aa@20070173
       domain_ou_path: "OU=Windows,OU=Servers,DC=ansible,DC=vagrant"
