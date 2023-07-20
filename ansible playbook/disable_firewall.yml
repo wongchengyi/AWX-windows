@@ -1,12 +1,12 @@
 ---
 # This playbook uses the win_ping module to test connectivity to Windows hosts
-- name: Disable Domain Firewall 
-  hosts: all 
+- hosts: all 
   gather_facts: false
   tasks:
-  win_firewall:
-      state: disabled
-      profiles:
-      - Domain
-      - Private
-      - Public
+    -name: Disable Domain Firewall 
+      win_firewall:
+          state: disabled
+          profiles:
+          - Domain
+          - Private
+          - Public
