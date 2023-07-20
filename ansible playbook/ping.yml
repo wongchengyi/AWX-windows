@@ -6,3 +6,5 @@
   tasks:
   - name: ping
     win_ping:
+  - name: Get whoami information
+    ansible.windows.win_whoami:
