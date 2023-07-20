@@ -4,7 +4,7 @@
   tasks:
     - name: Print message
       debug:
-        msg: FLAG 1
+        msg: START 1
     - name: Installing windows DNS Server
       win_feature:
         name: DNS
@@ -12,3 +12,15 @@
         include_management_tools: yes
         include_sub_features: yes
       register: _windows_dns_server
+    - name: Print message
+      debug:
+        msg: TASK 1 PASS
+    - name: reboot | Rebooting Server
+      win_reboot:
+        reboot_timeout_sec: 3600
+      when: >
+        _windows_dns_server['restart_needed'] is defined and
+        _windows_dns_server['restart_needed']
+    - name: Print message
+      debug:
+        msg: TASK 2 PASS
