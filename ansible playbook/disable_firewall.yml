@@ -5,8 +5,8 @@
   tasks:
     -name: Disable Domain Firewall 
       win_firewall:
-          state: disabled
-          profiles:
-          - Domain
-          - Private
-          - Public
+        state: disabled
+        profiles:
+        - Domain
+        - Private
+        - Public
