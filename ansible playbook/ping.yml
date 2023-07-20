@@ -1,14 +1,8 @@
 ---
 # This playbook uses the win_ping module to test connectivity to Windows hosts
-#- name: Ping 
-#  hosts: all 
+- name: Ping 
+  hosts: all 
 
-#  tasks:
-#  - name: ping
-#    win_ping:   
-- name: Disable Domain firewall
-  win_firewall:
-    state: disabled
-    profiles:
-    - Domain
-  tags: disable_firewall
+  tasks:
+  - name: ping
+    win_ping:   
