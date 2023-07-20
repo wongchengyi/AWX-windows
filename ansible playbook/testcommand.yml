@@ -40,3 +40,46 @@
     - name: Print message
       debug:
         msg: TASK 4 PASS
+    - name: Creating a windows domain
+      win_domain:
+        dns_domain_name: "attackrange.local"
+        safe_mode_password: "4uPfC6e67D8$"
+    - name: Print message
+      debug:
+        msg: TASK 5 PASS
+    - name: Setting DNS Servers
+      win_dns_client:
+        adapter_names: "*"
+        ipv4_addresses: "172.31.0.1"
+    - name: Print message
+      debug:
+        msg: TASK 6 PASS
+    - name: reboot | Rebooting Server
+      win_reboot:
+        post_reboot_delay: 60
+    - name: Print message
+      debug:
+        msg: TASK 7 PASS
+    - name: Managing Domain Controller Membership
+      win_domain_controller:
+        dns_domain_name: "attackrange.local"
+        domain_admin_user: "localuser1@attackrange.local"
+        domain_admin_password: "4uPfC6e67D8$"
+        safe_mode_password: "4uPfC6e67D8$"
+        state: "domain_controller"
+      register: _windows_domain_controller
+    - name: Print message
+      debug:
+        msg: TASK 8 PASS
+    - name: Enable Kerberos LogLevel
+      win_shell: reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v “LogLevel” /t REG_DWORD /d 1
+    - name: Print message
+      debug:
+        msg: TASK 9 PASS
+    - name: Enable Kerberos Authentication Service Logging
+      win_shell: auditpol /set /category:"Account Logon" /subcategory:"Kerberos Authentication Service" /success:enable /failure:enable
+    - name: Print message
+      debug:
+        msg: TASK 10 PASS
+    - name: Enable Kerberos Service Ticket Operations Logging
+      win_shell: auditpol /set /category:"Account Logon" /subcategory:"Kerberos Service Ticket Operations" /success:enable /failure:enable
