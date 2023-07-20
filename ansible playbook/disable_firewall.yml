@@ -1,12 +1,6 @@
 ---
-# This playbook uses the win_ping module to test connectivity to Windows hosts
-- hosts: all 
-  gather_facts: false
+- hosts: all
   tasks:
-    -name: Disable Domain Firewall 
-      win_firewall:
-        state: disabled
-        profiles:
-        - Domain
-        - Private
-        - Public
+    - name: Print message
+      debug:
+        msg: Hello Ansible World
