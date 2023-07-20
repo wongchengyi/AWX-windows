@@ -43,7 +43,7 @@
     - name: Creating a windows domain
       win_domain:
         dns_domain_name: "attackrange.local"
-        safe_mode_password: "4uPfC6e67D8$"
+        safe_mode_password: "4uPfC6e67D8"
     - name: Print message
       debug:
         msg: TASK 5 PASS
@@ -64,8 +64,8 @@
       win_domain_controller:
         dns_domain_name: "attackrange.local"
         domain_admin_user: "localuser1@attackrange.local"
-        domain_admin_password: "4uPfC6e67D8$"
-        safe_mode_password: "4uPfC6e67D8$"
+        domain_admin_password: "4uPfC6e67D8"
+        safe_mode_password: "4uPfC6e67D8"
         state: "domain_controller"
       register: _windows_domain_controller
     - name: Print message
@@ -83,3 +83,6 @@
         msg: TASK 10 PASS
     - name: Enable Kerberos Service Ticket Operations Logging
       win_shell: auditpol /set /category:"Account Logon" /subcategory:"Kerberos Service Ticket Operations" /success:enable /failure:enable
+
+
+
