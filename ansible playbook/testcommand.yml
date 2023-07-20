@@ -23,4 +23,20 @@
         _windows_dns_server['restart_needed']
     - name: Print message
       debug:
-        msg: TASK 2 PASS
+        msg: TASK 2 PASS 
+    - name: features | Installing RSAT AD Admin Center
+      win_feature:
+        name: RSAT-AD-AdminCenter
+        state: present
+    - name: Print message
+      debug:
+        msg: TASK 3 PASS
+    - name: features | Installing AD Domain Services
+      win_feature:
+        name: AD-Domain-Services
+        include_management_tools: yes
+        include_sub_features: yes
+        state: present
+    - name: Print message
+      debug:
+        msg: TASK 4 PASS
