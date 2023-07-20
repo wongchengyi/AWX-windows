@@ -6,9 +6,6 @@
   tasks:
   - name: ping
     win_ping:
-  - name: Get whoami information
-    ansible.windows.win_whoami:
-
   - name: Disable Domain firewall
     win_firewall:
     state: disabled
