@@ -8,9 +8,9 @@
     - name: Run basic PowerShell script
       ansible.windows.win_powershell:
         script: |
-          $domain = attackdefense.local
-          $password = uFa^J031*96H
-          $username = localuser01
+          $domain = 
+          $password = 
+          $username = 
           $credential = New-Object System.Management.Automation.PSCredential($username,$password)
           Add-Computer -DomainName $domain -Credential $credential
     - name: Print message
