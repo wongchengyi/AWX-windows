@@ -5,8 +5,8 @@
   - ansible.windows.win_domain_membership:
       dns_domain_name: ad.attackdefense.com
       hostname: "{{inventory_hostname}}"
-      domain_admin_user: Administrator@ad.attackdefense.com
-      domain_admin_password: Aa@20070173
+      domain_admin_user: 
+      domain_admin_password: 
       domain_ou_path: "OU=Windows,OU=Servers,DC=ansible,DC=vagrant"
       state: domain
     register: domain_state
