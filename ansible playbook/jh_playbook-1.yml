@@ -11,10 +11,10 @@
 
     - name: Promote child instances to domain controllers
       win_domain_controller:
-        safe_mode_password: uFa^J031*96H # Replace with the desired safe mode password
-        domain_name: attackdefense.local  # Replace with the desired domain name
-        domain_user: localuser01  # Replace with the desired domain user
-        domain_password: uFa^J031*96H  # Replace with the desired domain user's password
+        safe_mode_password:  # Replace with the desired safe mode password
+        domain_name:   # Replace with the desired domain name
+        domain_user:  # Replace with the desired domain user
+        domain_password:  # Replace with the desired domain user's password
         domain_netbios_name: test
         operation: install_replica
         promote_restart: yes
