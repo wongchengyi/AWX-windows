@@ -18,7 +18,7 @@
 - name: set local admin password
   win_user:
     name: localuser1
-    password: Aa@del@itte!@#
+    password: null
     state: present
 
 - name: features | Installing RSAT AD Admin Center
@@ -36,7 +36,7 @@
 - name: Creating a windows domain
   win_domain:
     dns_domain_name: "attackdefense.local"
-    safe_mode_password: "Aa@del@itte!@#"
+    safe_mode_password: "null"
 
 - name: Setting DNS Servers
   win_dns_client:
@@ -51,8 +51,8 @@
   win_domain_controller:
     dns_domain_name: "attackrange.local"
     domain_admin_user: "localuser1@attackrange.local"
-    domain_admin_password: "Aa@del@itte!@#"
-    safe_mode_password: "Aa@del@itte!@#"
+    domain_admin_password: "null"
+    safe_mode_password: "null"
     state: "domain_controller"
   register: _windows_domain_controller
 
