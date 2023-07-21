@@ -3,9 +3,6 @@
   gather_facts: false
   become: true
 
-  vars:
-    dc_ip: "ip-172-31-22-106.us-east-2.compute.internal"  # Replace with the DC's private IP
-
   tasks:
     - name: Install AD DS role
       win_feature:
