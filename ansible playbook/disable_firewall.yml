@@ -5,11 +5,6 @@
     - name: Print message
       debug:
         msg: START 1
-   - name: Stop and disable firewalld.
-     service:
-       name: firewalld
-       state: stopped
-       enabled: False
     - name: Print message
       debug:
         msg: TASK 1 PASS
