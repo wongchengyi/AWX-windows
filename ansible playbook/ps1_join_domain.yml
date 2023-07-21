@@ -15,4 +15,13 @@
           Add-Computer -DomainName $domain -Credential $credential
     - name: Print message
       debug:
-        msg: TASK 1 PASS
+        msg: TASK 1 PASS AND STARTING TASK 2
+    - name: reboot | Rebooting Server
+          win_reboot:
+            reboot_timeout_sec: 3600
+          when: >
+            _windows_dns_server['restart_needed'] is defined and
+            _windows_dns_server['restart_needed']
+    - name: Print message
+      debug:
+        msg: TASK 2 PASS
