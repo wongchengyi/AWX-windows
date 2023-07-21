@@ -1,0 +1,35 @@
+- name: Join child instances to domain controller
+  hosts: child
+  gather_facts: false
+  become: true
+
+  vars:
+    dc_ip: "ip-172-31-22-106.us-east-2.compute.internal"  # Replace with the DC's private IP
+
+  tasks:
+    - name: Install AD DS role
+      win_feature:
+        name: AD-Domain-Services
+        state: present
+
+    - name: Promote child instances to domain controllers
+      win_domain_controller:
+        safe_mode_password: uFa^J031*96H # Replace with the desired safe mode password
+        domain_name: attackdefense.local  # Replace with the desired domain name
+        domain_user: localuser01  # Replace with the desired domain user
+        domain_password: uFa^J031*96H  # Replace with the desired domain user's password
+        domain_netbios_name: test
+        operation: install_replica
+        promote_restart: yes
+        install_dns: yes
+        options: { "replication_type": "RW", "replication_schedule": "always" }
+      register: dc_result
+
+    - name: Reboot child instances if needed
+      win_reboot:
+      when: dc_result.reboot_required
+
+    - name: Wait for child instances to come back online
+      wait_for_connection:
+        delay: 5
+        timeout: 300
