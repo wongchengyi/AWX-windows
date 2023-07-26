@@ -3,11 +3,8 @@
   hosts: all
   become: false
   gather_facts: false
-  vars:
-    source: "/home/centos/playbook/join_domain.ps1"
-    destination: "C:\Users\Administrator\Downloads\join_domain.ps1"
   tasks:
-      - name: copy script
+      - name: copy script to windows
         ansible.windows.win_copy:
-          src: "{{ source }}"
-          dest: "{{ destination }}"
+          src: /home/centos/playbook/join_domain.ps1
+          dest: C:\Users\Administrator\Downloads\join_domain.ps1
