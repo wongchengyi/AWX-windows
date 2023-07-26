@@ -1,10 +1,1 @@
----
-- name: win_copy module demo
-  hosts: all
-  become: false
-  gather_facts: false
-  tasks:
-      - name: copy script to windows
-        ansible.windows.win_copy:
-          src: join_domain.ps1
-          dest: C:\Users\Administrator\Downloads\join_domain.ps1
+
