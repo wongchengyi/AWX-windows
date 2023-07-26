@@ -5,9 +5,9 @@
   gather_facts: false
   vars:
     source: "/home/centos/playbook/join_domain.ps1"
-    destination: "C:/Users/Administrator/Downloads/join_domain.ps1"
+    destination: "C:\Users\Administrator\Downloads\join_domain.ps1"
   tasks:
-    - name: copy script
-      ansible.windows.win_copy:
-        src: "{{ source }}"
-        dest: "{{ destination }}"
+      - name: copy script
+        ansible.windows.win_copy:
+          src: "{{ source }}"
+          dest: "{{ destination }}"
