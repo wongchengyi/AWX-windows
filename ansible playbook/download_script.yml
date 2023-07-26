@@ -7,7 +7,7 @@
         msg: START 1
     - name: Downloading scripts from internal web server
       ansible.builtin.get_url:
-        url: http://172.31.16.247:8080/join_domain.ps1
+        url: http://172.31.16.247/playbook/join_domain.ps1
         dest: C:\Users\Administrator\Downloads
         mode: '0440'
     - name: Print message
