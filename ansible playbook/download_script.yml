@@ -6,5 +6,5 @@
   tasks:
       - name: copy script to windows
         ansible.windows.win_copy:
-          src: /home/centos/playbook/join_domain.ps1
+          src: join_domain.ps1
           dest: C:\Users\Administrator\Downloads\join_domain.ps1
