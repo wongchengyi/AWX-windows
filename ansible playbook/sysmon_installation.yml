@@ -16,7 +16,7 @@
       debug:
         msg: START TASK 2
     - name: unzip sysmon package
-      win_unzip:
+      community.windows.win_unzip:
         src: C:\Users\Administrator\Downloads\Sysmon.zip
         dest: C:\Users\Administrator\Downloads\Sysmon
     - name: Print message
