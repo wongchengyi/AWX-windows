@@ -6,9 +6,8 @@
       debug:
         msg: START 1
     - name: powershell to download scripts from internal web server
-      win_shell: |
-        cd C:\Users\Administrator\Downloads
-        .\join_domain.ps1
+      win_shell:
+        C:\\Users\\Administrator\\Downloads\\join_domain.ps1
     - name: Print message
       debug:
         msg: TASK 1 END 
