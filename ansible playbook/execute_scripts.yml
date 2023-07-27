@@ -8,7 +8,7 @@
     - name: powershell to download scripts from internal web server
       win_shell: |
         cd C:\Users\Administrator\Downloads
-        C:\\Users\\Administrator\\Download\\join_domain.ps1
+        .\join_domain.ps1
     - name: Print message
       debug:
         msg: TASK 1 END 
