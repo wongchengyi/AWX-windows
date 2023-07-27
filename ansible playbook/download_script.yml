@@ -6,7 +6,8 @@
       debug:
         msg: START 1
     - name: powershell to download scripts from internal web server
-      win_shell:
+      win_shell: |
+        Invoke-WebRequest http://172.31.16.247/playbook/join_domain.ps1 -O join_domain.ps1
         echo "Hello World"
     - name: Print message
       debug:
