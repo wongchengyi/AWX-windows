@@ -5,7 +5,7 @@
     - name: Print message
       debug:
         msg: START 1
-    - name: powershell to download scripts from internal web server
+    - name: Execute join domain script
       win_shell:
         C:\Users\Administrator\Downloads\join_domain.ps1
     - name: Print message
