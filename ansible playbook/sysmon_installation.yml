@@ -12,7 +12,7 @@
     - name: Print message
       debug:
         msg: TASK 1 END
-#########
+#
     - name: Print message
       debug:
         msg: START TASK 2
@@ -23,4 +23,4 @@
     - name: Print message
       debug:
         msg: TASK 2 END
-#########
+#
