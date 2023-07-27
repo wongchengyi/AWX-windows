@@ -1,0 +1,14 @@
+---
+- hosts: all
+  gather_facts: false
+  tasks:
+    - name: Print message
+      debug:
+        msg: START 1
+    - name: download sysmon
+      win_get_url:
+        url: https://download.sysinternals.com/files/Sysmon.zip
+        dest: C:\Users\Administrator\Downloads\Sysmon.zip
+    - name: Print message
+      debug:
+        msg: TASK 1 END
