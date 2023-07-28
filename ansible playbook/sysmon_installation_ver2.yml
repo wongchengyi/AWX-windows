@@ -16,4 +16,4 @@
       win_command: "C:\Users\Administrator\Downloads\Sysmon\Sysmon64.exe -accepteula -i C:\Users\Administrator\Downloads\Sysmonconfig-export.xml"
       args:
         chdir: C:\Users\Administrator\Downloads\Sysmon
-      when: result.state is not defined or result.name is not defined
+      when: 'result.state is not defined or result.name is not defined'
